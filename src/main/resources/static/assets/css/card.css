@@ -1,0 +1,62 @@
+.cards tbody tr {
+   float: left;
+   width: calc(33% - 12px);
+   margin: 0.5rem;
+   border: 0.0625rem solid rgba(0, 0, 0, .125);
+   border-radius: .25rem;
+   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+   min-height: 730px;
+}
+
+.cards tbody td img {
+    max-height: 180px;
+    width: auto;
+}
+
+.cards tbody td {
+   display: block;
+}
+
+.cards thead {
+   display: none;
+}
+
+.cards .columna-50-porciento {
+    
+    width: 49%;
+    display: inline-block;
+    padding: 0;
+}
+.cards .columna-50-porciento img {
+	max-width: 100%;
+}
+.cards .solo-visible-en-cards {
+	display: block !important;
+}
+.cards .ocultar-en-cards {
+	display: none !important;
+}
+
+.cards td:before {
+   content: attr(data-label);
+   position: relative;
+   float: left;
+   color: #808080;
+   min-width: 4rem;
+   margin-left: 0;
+   margin-right: 1rem;
+   text-align: left;   
+}
+
+tr.selected td:before {
+   color: #CCC;
+}
+
+.table .avatar {
+   width: 50px;
+}
+
+.cards .avatar {
+   width: 150px;
+   margin: 15px;
+}
