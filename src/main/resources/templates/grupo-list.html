@@ -31,15 +31,76 @@
     <link rel="stylesheet" href="../assets/font-awesome.min.css">
 
     <script src="../assets/js/card.js"></script>
-
+   
+	<style>
+		.bloque-scrolleable {
+		    max-height: calc(100vh - 100px);
+		    overflow-y: scroll;
+		}
+		#demoFont {
+font-family: Verdana, Geneva, sans-serif;
+font-size: 8px;
+letter-spacing: 0.2px;
+word-spacing: -0.8px;
+color: #000000;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+		
+		body {
+		    overflow-y: hidden;
+		    overflow-x: hidden;
+		}
+		
+		::-webkit-scrollbar {
+		  width: 6px;               /* width of the entire scrollbar */
+		}
+		
+		::-webkit-scrollbar-track {
+		  background: white;        /* color of the tracking area */
+		}
+		
+		::-webkit-scrollbar-thumb {
+		  background-color: black;    /* color of the scroll thumb */
+		  border-radius: 20px;       /* roundness of the scroll thumb */
+		  border: 1px solid white;  /* creates padding around scroll thumb */
+		}
+		.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 8320px;
+}
+	</style>
 	
 </head>  
 <body style="color: rgb(0,0,0);">
-    <div></div>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="border-color: var(--red);background: rgb(0,0,0);">
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container"   style="background-color: rgb(0,0,0); ">>
+  <div class="row">
+    <div class="col">
+    
+    
+      <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="border-color: var(--red);background: rgb(0,0,0);">
         <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
 
-<a class="navbar-brand" href="#" style="font-size: 42px;text-shadow: 0px 0px 9px rgb(255,240,240);transform: perspective(460px);margin-right: 31px;margin-bottom: 0px;margin-left: 102px;font-family: Amarante, serif;">LAS NOVELAS</a>
+<a class="navbar-brand" href="#" style="font-size: 42px;text-shadow: 0px 0px 9px rgb(255,240,240);transform: perspective(460px);margin-right: 31px;margin-bottom: 0px;margin-left: 102px;font-family: Amarante, serif;">LAS 1000 NOVELAS</a>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/sobremi}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Sobre Mi</a></li>
@@ -47,26 +108,32 @@
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/personajes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Las Novelas</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/generos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Generos</a></li>
-                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/incidentes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Generos</a></li>
-                  </ul>
+                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/incidentes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Capitulos</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="container">
 
-    <div class="row">
-        <div class="col-xl-2" style="background: #000000;font-size: 9px;width: 120px;height:1800px;color: rgb(0,0,0);">
-            <section class="projects-horizontal">
+  
+  <div class="row">
+  
+  
+  
+    <div class="col-2" style="background: #000000;font-size: 9px;height: 2844.52px;min-height: 23px;">
+    
+          <section class="projects-horizontal">
                 <div class="container" style="background: #f27b7b;">
                     <div class="intro"></div>
                 </div>
             </section>
-
-
-
-
-
-
 
             <section id="apresentacao">
                 <div class="row" id="Conteudo-5-colunas">
@@ -97,56 +164,42 @@
                     </div>
                 </div>
             </section>
-        </div>
+    
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
+	 <div class="col bloque-scrolleable" style="background-color: white ">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-
-
-
-        <div class="col">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-6"></div>
-   
-
-
-
-
-
-<div class="container">
-
-
-
-	<div class="container mt-3">
-
+	 <div class="col bloque-scrolleable" style="background-color: white ">
 
 	
 		<h1>Nuestros Grupos de Personajes</h1>
@@ -158,10 +211,10 @@
 </div>
    
    <div>
-	<a class="btn btn-success" th:href="@{/grupos/new}">Añadir Historias</a>
-	<a class="btn btn-danger" th:href="@{/grupos/delete}">Borrar historia</a><p/>
+	<a class="btn btn-success" th:href="@{/grupos/new}">Añadir Grupos</a>
+	<a class="btn btn-danger" th:href="@{/grupos/delete}">Borrar Grupos</a><p/>
    </div>
-	 <div style="align-content: center;"><img src="img/1.png" style="width: 1209px;"></div>
+	 <div style="align-content: center;"><img src="img/1.png" style="width: 809px;"></div>
 	
 	<p/>
 	
@@ -181,10 +234,10 @@
            
  
            <td>
-				<a class="btn btn-primary text-white" th:href="@{/grupos/{id}/view(id=${grup.id})}">Ver</a>
-				<a class="btn btn-success text-white" th:href="@{/grupos/{id}/insertpersonajeporgrupo(id=${grup.id})}">Insertar Nuevo Personaje</a>
-				<a class="btn btn-warning text-white" th:href="@{/grupos/{id}/edit(id=${grup.id})}">Editar</a>
-				<a class="btn btn-danger text-white" th:href="@{/grupos/{id}/delete(id=${grup.id})}">Eliminar</a>
+				<a  th:href="@{/grupos/{id}/view(id=${grup.id})}">Ver</a>
+				<a  th:href="@{/grupos/{id}/insertpersonajeporgrupo(id=${grup.id})}">Insertar Nuevo Personaje</a>
+				<a  th:href="@{/grupos/{id}/edit(id=${grup.id})}">Editar</a>
+				<a  th:href="@{/grupos/{id}/delete(id=${grup.id})}">Eliminar</a>
            </td>
        </tr>
       </tbody>
@@ -194,10 +247,40 @@
    
 </div>
 
+     
+
+   
+				   
+				 <div class="col-2" style="background: #000000;font-size: 9px;height: 2844.52px;min-height: 23px;">
+				                
+				                
+				                <p class="description" style="text-align: center;">&nbsp;</p>
+				            
+				                      <p>  <h2 id="titulo-3" class="c-titulo2" style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">Nuevas tematicas<br></h2>class="new1">>
+				            <p class="c-corpo" style="color: rgb(255,255,255);">Apresentamos também, nessa aula, três personagens que vão nos acompanhar nesta formação em Educação Financeira Pessoal: Marta, Aílton e Joana. São perfis que revelam comportamentos distintos em relação às finanças pessoais. Com eles nos aproximamos um pouco mais da vida prática, do cotidiano de pessoas que têm muitos sonhos e também muitas dúvidas.<br></p><img class="img-fluid" src="img/alda 1ss.png">
+				           <p> <h2 id="titulo-3" class="c-titulo2" style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">Forma de Contactar<br></h2>
+
+				           <p> <h2 id="titulo-3" class="c-titulo2" style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">Contacto<br></h2>
+				
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+									  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+									</div>
+									<div class="mb-3">
+									  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+									 </div>
+						</div>
+
+</div>
 
 
 
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
 
+
+ 
 </body>
 
 </html>

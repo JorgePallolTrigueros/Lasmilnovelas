@@ -24,17 +24,10 @@ import javax.persistence.OneToMany;
 public class Grupo implements Serializable{
 	
 
-
-
-	
-
-    
-	
 	private static final long serialVersionUID = 1L;
-
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY )
-	private Long Id;
+	@GeneratedValue
+	private Long id;
 	
 	
 	@Column(length =50, name="nombre")
@@ -63,19 +56,44 @@ public class Grupo implements Serializable{
 	
 	
 	
+	public Long getId() {
+			return id;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+		public void setId(Long id) {
+			this.id = id;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public void setPersonajes(List<Personaje> personajes) {
 		this.personajes = personajes;
 	}
 
 
-	public Long getId() {
-		return Id;
-	}
 
-
-	public void setIdgrupo(Long id) {
-		Id = id;
-	}
 
 
 	public String getNombre() {

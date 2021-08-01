@@ -19,23 +19,17 @@ import javax.persistence.Table;
 @Table(name="personaje")
 public class Personaje implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
 	private Long id;
 	
-	
 	@Column(length =50, name="nombre")
 	private String nombre;
 	
 
-
-	@OneToMany(mappedBy = "personaje", cascade = CascadeType.ALL)
-	private List<Roll> rolles = new ArrayList<Roll>();
-
+	
+	
 	
 	
 	@Column(length =450, name="personaje_url")
@@ -47,31 +41,46 @@ public class Personaje implements Serializable{
 	@Column(length =450, name="descripcion")
 	private String descripcion;
 
+	@Column(length =450, name="incidencia")
+	private String incidencia;
 	
+
+
+	@Column(length =50, name="edad")
+	private Integer edad;	
+	
+	@Column(length =50, name="sexo")
+	private String sexo;	
+	
+	@Column(length =50, name="cabello")
+	private String cabello;
+	
+	@Column(length =50, name="nacionalidad")
+	private String nacionalidad;
+	
+	@Column(length =50, name="profesion")
+	private String profesion;
+	
+	@Column(length =50, name="corpulencia")
+	private String corpulencia;	
+	
+	@OneToMany(mappedBy = "personaje", cascade = CascadeType.ALL)
+	private List<Galeria_personaje> Galeria_personaje = new ArrayList<Galeria_personaje>();
+	
+	
+
+
 	@ManyToOne
 	@JoinColumn(name = "id_grupo")
 	private Grupo grupo;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@ManyToOne
+	@JoinColumn(name = "id_historia")
+	private Historia historia;
 
 
 
 
-	public Grupo getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(Grupo grupo) {
-		this.grupo = grupo;
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -82,6 +91,70 @@ public class Personaje implements Serializable{
 	}
 
 
+
+	public String getIncidencia() {
+		return incidencia;
+	}
+
+	public void setIncidencia(String incidencia) {
+		this.incidencia = incidencia;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getCabello() {
+		return cabello;
+	}
+
+	public void setCabello(String cabello) {
+		this.cabello = cabello;
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+
+	public String getProfesion() {
+		return profesion;
+	}
+
+	public void setProfesion(String profesion) {
+		this.profesion = profesion;
+	}
+
+	public String getCorpulencia() {
+		return corpulencia;
+	}
+
+	public void setCorpulencia(String corpulencia) {
+		this.corpulencia = corpulencia;
+	}
+
+	public List<Galeria_personaje> getGaleria_personaje() {
+		return Galeria_personaje;
+	}
+
+	public void setGaleria_personaje(List<Galeria_personaje> galeria_personaje) {
+		Galeria_personaje = galeria_personaje;
+	}
 
 	public String getPersonaje_url() {
 		return personaje_url;
@@ -116,15 +189,6 @@ public class Personaje implements Serializable{
 
 
 
-
-	public List<Roll> getRolles() {
-		return rolles;
-	}
-
-	public void setRolles(List<Roll> rolles) {
-		this.rolles = rolles;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -133,16 +197,55 @@ public class Personaje implements Serializable{
 		this.id = id;
 	}
 
-	public Personaje(String nombre, String personaje_url, String personaje_url_daz, List<Roll> rolles,
-			String descripcion) {
+	public Personaje(
+			String nombre, 
+			String personaje_url,
+			String personaje_url_daz,  
+			String incidencia,  
+			Historia historia,
+			Grupo grupo,
+			String descripcion,
+			Integer edad,
+			String sexo,
+			String cabello,
+			String nacionalidad,
+			String profesion, 
+			String corpulencia,
+
+			 List<Galeria_personaje> Galeria_personaje) {
 		super();
 		this.nombre = nombre;
+		this.historia = historia;
 		this.personaje_url = personaje_url;
 		this.personaje_url_daz = personaje_url_daz;
 		this.descripcion = descripcion;
-		this.rolles = rolles;	
+		this.edad= edad;
+		this.sexo=sexo; 
+		this.grupo =grupo;
+		this.cabello=cabello;
+		this.nacionalidad=nacionalidad; 
+		this.profesion=profesion;
+		this.corpulencia=corpulencia;
+		this.Galeria_personaje = Galeria_personaje;
+		this.incidencia = incidencia;
 	}
 
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
+	public Historia getHistoria() {
+		return historia;
+	}
+
+	public void setHistoria(Historia historia) {
+		this.historia = historia;
+	}
 
 	public Personaje() {
 

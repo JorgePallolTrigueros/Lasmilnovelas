@@ -16,13 +16,13 @@ import javax.persistence.Table;
 @Table(name="galeria_Incidente")
 public class Galeria_Incidente implements Serializable{
 
-	/**
-	 * 
-	 */
+
+	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY )
-	private Long Id;
+	@GeneratedValue
+	private Long id;
+	
 	
 	
 	@Column(length =550, name="url")

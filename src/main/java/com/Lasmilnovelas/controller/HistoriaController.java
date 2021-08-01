@@ -55,62 +55,28 @@ public class HistoriaController {
 	}
 	
 
-	@GetMapping({"/insertpersonajeenhistoria/{id}/"})
-	public String insertpersonajeenhistoria(@PathVariable Long id, Model model) {
-		Optional<Personaje> personajeOpt = personajesRepository.findById(id);
-		if (!personajeOpt.isPresent()) {
-			model.addAttribute("error", "ID Personaje not found.");
-			model.addAttribute("personajes", personajesRepository.findAll());
-			return "historia-list";
-		}
-		model.addAttribute("personaje", personajeOpt.get());
+	
+	
+	
+	
+
+
+	@GetMapping({"\"/historias/{id_historia}/insertgaleriaenhistoria"})
+	public String insertgaleriaenhistoria(@PathVariable Long id_historia, Model model) {
+		model.addAttribute("id_historia", historiaRepository.findById(id_historia).get());
+		return "galeriaenhistoria";
+	}
+
+	
+	
+	@GetMapping({"/historias/{id_historia}/insertpersonajeenhistoria"})
+	public String insertpersonajeenhistoria(@PathVariable Long id_historia, Model model) {
+		Optional<Personaje> personajeOpt = personajesRepository.findById(id_historia);
+		model.addAttribute("personajes", personajeOpt.get());
+	
 		return "insertpersonajeenhistoria";
 	}
 	
-
-	@GetMapping({"/insertgaleriaenhistoria/{id}/"})
-	public String insertgaleriaenhistoria(@PathVariable Long id, Model model) {
-		Optional<Galeria> galeriaOpt = galeriaRepository.findById(id);
-		if (!galeriaOpt.isPresent()) {
-			model.addAttribute("error", "ID Galeria not found.");
-			model.addAttribute("personajes", galeriaRepository.findAll());
-			return "historia-list";
-		}
-		model.addAttribute("galeria", galeriaOpt.get());
-		return "galeriaenhistoria";
-	}
-	
-	
-	@GetMapping({"/insertincidenteenhistoria/{id}/"})
-	public String insertcapituloenhistoria(@PathVariable Long id, Model model) {
-		Optional<Incidente> capituloOpt = incidenteRepository.findById(id);
-		if (!capituloOpt.isPresent()) {
-			model.addAttribute("error", "ID incidente not found.");
-			model.addAttribute("capitulos", incidenteRepository.findAll());
-			return "historia-list";
-		}
-		model.addAttribute("incidente", capituloOpt.get());
-		return "incidenteenhistoria";
-	}
-	
-	
-	
-	
-	
-	
-	
-
-	@GetMapping({"/inserthistoriaporgenero/{id}/"})
-	public String insertpersonajeporgrupo(@PathVariable Long id, Model model) {
-		Optional<Personaje> personajeOpt = personajesRepository.findById(id);
-		if (!personajeOpt.isPresent()) {
-			model.addAttribute("error", "ID Genero not found.");
-			model.addAttribute("personajes", personajesRepository.findAll());
-			return "greupo-list";
-		}
-		model.addAttribute("historia", personajeOpt.get());
-		return "inserthistoriaporgenero";
-	}
 
 
 
@@ -152,7 +118,7 @@ public class HistoriaController {
 	
 	
 	
-	@GetMapping("/historias/{id}/insertcapitulo")
+	@GetMapping("insertgaleriaenhistoria")
 	public String insertCapitulo(@PathVariable Long id, Model model) {
 		model.addAttribute("historia", historiaRepository.findById(id).get());	
 		return "newcapitulo";
@@ -235,7 +201,7 @@ public class HistoriaController {
 		}
 		model.addAttribute("list", pageHistorias.getContent());
 
-		return "historiapaginada";
+		return "insertpersonajeenhistoria";
 	}
 	
 	

@@ -31,42 +31,99 @@
     <link rel="stylesheet" href="../assets/font-awesome.min.css">
 
     <script src="../assets/js/card.js"></script>
-
+   
+	<style>
+	
+	
+	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 8320px;
+}
+		.bloque-scrolleable {
+		    max-height: calc(100vh - 100px);
+		    overflow-y: scroll;
+		}
+		body {
+		    overflow-y: hidden;
+		    overflow-x: hidden;
+		}
+		
+		::-webkit-scrollbar {
+		  width: 6px;               /* width of the entire scrollbar */
+		}
+		
+		::-webkit-scrollbar-track {
+		  background: white;        /* color of the tracking area */
+		}
+		
+		::-webkit-scrollbar-thumb {
+		  background-color: black;    /* color of the scroll thumb */
+		  border-radius: 20px;       /* roundness of the scroll thumb */
+		  border: 1px solid white;  /* creates padding around scroll thumb */
+		}
+		
+	</style>
 	
 </head>  
 <body style="color: rgb(0,0,0);">
-    <div></div>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="border-color: var(--red);background: rgb(0,0,0);">
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container"   style="background-color: rgb(0,0,0); ">>
+  <div class="row">
+    <div class="col">
+    
+    
+      <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="border-color: var(--red);background: rgb(0,0,0);">
         <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
 
-<a class="navbar-brand" href="#" style="font-size: 42px;text-shadow: 0px 0px 9px rgb(255,240,240);transform: perspective(460px);margin-right: 31px;margin-bottom: 0px;margin-left: 102px;font-family: Amarante, serif;">LAS NOVELAS</a>
+<a class="navbar-brand" href="#" style="font-size: 42px;text-shadow: 0px 0px 9px rgb(255,240,240);transform: perspective(460px);margin-right: 31px;margin-bottom: 0px;margin-left: 102px;font-family: Amarante, serif;">LAS 1000 NOVELAS</a>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
-                           <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/sobremi}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Sobre Mi</a></li>
+                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/sobremi}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Sobre Mi</a></li>
                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/grupos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes Por Grupo</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/personajes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Las Novelas</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/generos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Generos</a></li>
-                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/incidentes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Generos</a></li>
+                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/incidentes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Capitulos</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="container">
 
-    <div class="row">
-        <div class="col-xl-2" style="background: #000000;font-size: 9px;width: 120px;height:1800px;color: rgb(0,0,0);">
-            <section class="projects-horizontal">
+  
+  <div class="row">
+  
+  
+  
+    <div class="col-2" style="background: #000000;font-size: 9px;height: 2844.52px;min-height: 23px;">
+    
+          <section class="projects-horizontal">
                 <div class="container" style="background: #f27b7b;">
                     <div class="intro"></div>
                 </div>
             </section>
-
-
-
-
-
-
 
             <section id="apresentacao">
                 <div class="row" id="Conteudo-5-colunas">
@@ -97,59 +154,62 @@
                     </div>
                 </div>
             </section>
-        </div>
-
-
-
-
-
-        <div class="col">
-
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-     <img class="img-fluid" src="img/inci/marco y barandilla 2.png">
+    
+    
+    
     </div>
+    
+    
 
-  </div>
-  <div class="row">
-    <div class="col">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra bibendum lacus id sagittis. Aliquam maximus aliquam mi vitae dapibus. Quisque venenatis hendrerit odio bibendum varius. Aliquam at libero metus. Fusce ultricies sapien non elit tempor, quis efficitur felis iaculis. Proin a rhoncus erat. Etiam maximus, turpis non aliquet faucibus, sapien sem commodo metus, in ultricies leo odio quis ligula. Nam congue massa sed blandit bibendum. Nam luctus dolor id libero interdum auctor. Quisque quis odio enim. Quisque rutrum varius dolor, eu pretium nisl tristique luctus. Aenean sagittis facilisis sapien ac mollis. Fusce at lacinia leo. Sed gravida lectus vitae nibh convallis, nec varius lectus maximus. Aenean condimentum nunc id tristique euismod. In iaculis et neque ut interdum.
+	 <div class="col bloque-scrolleable" style="background-color: white ">
+							
+				            	<img class="img-fluid" src="img/inci/marco y barandilla 2.png">
+							
+                  						
+                  								<div class="row">
+                    								<div class="col"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra bibendum lacus id sagittis. Aliquam maximus aliquam mi vitae dapibus. Quisque venenatis hendrerit odio bibendum varius. Aliquam at libero metus. Fusce ultricies sapien non elit tempor, quis efficitur felis iaculis. Proin a rhoncus erat. Etiam maximus, turpis non aliquet faucibus, sapien sem commodo metus, in ultricies leo odio quis ligula. Nam congue massa sed blandit bibendum. Nam luctus dolor id libero interdum auctor. Quisque quis odio enim. Quisque rutrum varius dolor, eu pretium nisl tristique luctus. Aenean sagittis facilisis sapien ac mollis. Fusce at lacinia leo. Sed gravida lectus vitae nibh convallis, nec varius lectus maximus. Aenean condimentum nunc id tristique euismod. In iaculis et neque ut interdum. Suspendisse ac orci eu augue malesuada feugiat. Nunc vitae enim orci. In hac habitasse platea dictumst. Nam ac tempus leo. Phasellus vitae sem tempus, sollicitudin quam vel, vehicula tellus. Maecenas urna odio, imperdiet nec orci sed, vulputate bibendum ipsum. Maecenas a bibendum nulla. Morbi ornare neque et lorem laoreet efficitur. Mauris non lacus vel mauris viverra viverra. Pellentesque id massa nec libero dignissim vulputate. Suspendisse sollicitudin risus vitae mauris mollis, quis congue nibh fringilla. Pellentesque sit amet tincidunt neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta sapien eget nisi rutrum, vitae imperdiet magna ornare. Integer posuere, metus non porta dignissim, dui nulla viverra urna, in consequat dui lorem ut justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eget nunc mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a egestas sapien. Curabitur sagittis, elit posuere elementum egestas, odio diam bibendum orci, ut imperdiet leo nisl in elit. Duis lorem odio, rhoncus vitae orci eget, imperdiet dapibus dui. Sed non sapien ligula. Nullam ac porttitor mi. Morbi semper mauris vitae lacus commodo, eleifend pharetra quam fringilla. Phasellus non malesuada enim. Curabitur bibendum nulla a viverra blandit. Curabitur nibh erat, rutrum nec ultricies sit amet, bibendum lacinia elit. Donec eu porta leo. Donec in justo rhoncus, venenatis libero eget, sagittis sapien. Phasellus fringilla maximus ante, ut auctor tellus condimentum vitae. Sed dignissim luctus mi, eu pretium urna posuere id. In quis lacus eget odio iaculis accumsan sit amet non nisi. Donec ornare posuere erat quis luctus. Ut eleifend gravida metus quis feugiat. Praesent vulputate convallis lorem quis placerat. Praesent enim sem, porttitor rutrum pellentesque et, viverra fringilla quam. Aliquam erat volutpat. </div>
+                    								<div class="col"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra bibendum lacus id sagittis. Aliquam maximus aliquam mi vitae dapibus. Quisque venenatis hendrerit odio bibendum varius. Aliquam at libero metus. Fusce ultricies sapien non elit tempor, quis efficitur felis iaculis. Proin a rhoncus erat. Etiam maximus, turpis non aliquet faucibus, sapien sem commodo metus, in ultricies leo odio quis ligula. Nam congue massa sed blandit bibendum. Nam luctus dolor id libero interdum auctor. Quisque quis odio enim. Quisque rutrum varius dolor, eu pretium nisl tristique luctus. Aenean sagittis facilisis sapien ac mollis. Fusce at lacinia leo. Sed gravida lectus vitae nibh convallis, nec varius lectus maximus. Aenean condimentum nunc id tristique euismod. In iaculis et neque ut interdum. Suspendisse ac orci eu augue malesuada feugiat. Nunc vitae enim orci. In hac habitasse platea dictumst. Nam ac tempus leo. Phasellus vitae sem tempus, sollicitudin quam vel, vehicula tellus. Maecenas urna odio, imperdiet nec orci sed, vulputate bibendum ipsum. Maecenas a bibendum nulla. Morbi ornare neque et lorem laoreet efficitur. Mauris non lacus vel mauris viverra viverra. Pellentesque id massa nec libero dignissim vulputate. Suspendisse sollicitudin risus vitae mauris mollis, quis congue nibh fringilla. Pellentesque sit amet tincidunt neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta sapien eget nisi rutrum, vitae imperdiet magna ornare. Integer posuere, metus non porta dignissim, dui nulla viverra urna, in consequat dui lorem ut justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eget nunc mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a egestas sapien. Curabitur sagittis, elit posuere elementum egestas, odio diam bibendum orci, ut imperdiet leo nisl in elit. Duis lorem odio, rhoncus vitae orci eget, imperdiet dapibus dui. Sed non sapien ligula. Nullam ac porttitor mi. Morbi semper mauris vitae lacus commodo, eleifend pharetra quam fringilla. Phasellus non malesuada enim. Curabitur bibendum nulla a viverra blandit. Curabitur nibh erat, rutrum nec ultricies sit amet, bibendum lacinia elit. Donec eu porta leo. Donec in justo rhoncus, venenatis libero eget, sagittis sapien. Phasellus fringilla maximus ante, ut auctor tellus condimentum vitae. Sed dignissim luctus mi, eu pretium urna posuere id. In quis lacus eget odio iaculis accumsan sit amet non nisi. Donec ornare posuere erat quis luctus. Ut eleifend gravida metus quis feugiat. Praesent vulputate convallis lorem quis placerat. Praesent enim sem, porttitor rutrum pellentesque et, viverra fringilla quam. Aliquam erat volutpat. </div>
+                    								<div class="col"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra bibendum lacus id sagittis. Aliquam maximus aliquam mi vitae dapibus. Quisque venenatis hendrerit odio bibendum varius. Aliquam at libero metus. Fusce ultricies sapien non elit tempor, quis efficitur felis iaculis. Proin a rhoncus erat. Etiam maximus, turpis non aliquet faucibus, sapien sem commodo metus, in ultricies leo odio quis ligula. Nam congue massa sed blandit bibendum. Nam luctus dolor id libero interdum auctor. Quisque quis odio enim. Quisque rutrum varius dolor, eu pretium nisl tristique luctus. Aenean sagittis facilisis sapien ac mollis. Fusce at lacinia leo. Sed gravida lectus vitae nibh convallis, nec varius lectus maximus. Aenean condimentum nunc id tristique euismod. In iaculis et neque ut interdum. Suspendisse ac orci eu augue malesuada feugiat. Nunc vitae enim orci. In hac habitasse platea dictumst. Nam ac tempus leo. Phasellus vitae sem tempus, sollicitudin quam vel, vehicula tellus. Maecenas urna odio, imperdiet nec orci sed, vulputate bibendum ipsum. Maecenas a bibendum nulla. Morbi ornare neque et lorem laoreet efficitur. Mauris non lacus vel mauris viverra viverra. Pellentesque id massa nec libero dignissim vulputate. Suspendisse sollicitudin risus vitae mauris mollis, quis congue nibh fringilla. Pellentesque sit amet tincidunt neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta sapien eget nisi rutrum, vitae imperdiet magna ornare. Integer posuere, metus non porta dignissim, dui nulla viverra urna, in consequat dui lorem ut justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eget nunc mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a egestas sapien. Curabitur sagittis, elit posuere elementum egestas, odio diam bibendum orci, ut imperdiet leo nisl in elit. Duis lorem odio, rhoncus vitae orci eget, imperdiet dapibus dui. Sed non sapien ligula. Nullam ac porttitor mi. Morbi semper mauris vitae lacus commodo, eleifend pharetra quam fringilla. Phasellus non malesuada enim. Curabitur bibendum nulla a viverra blandit. Curabitur nibh erat, rutrum nec ultricies sit amet, bibendum lacinia elit. Donec eu porta leo. Donec in justo rhoncus, venenatis libero eget, sagittis sapien. Phasellus fringilla maximus ante, ut auctor tellus condimentum vitae. Sed dignissim luctus mi, eu pretium urna posuere id. In quis lacus eget odio iaculis accumsan sit amet non nisi. Donec ornare posuere erat quis luctus. Ut eleifend gravida metus quis feugiat. Praesent vulputate convallis lorem quis placerat. Praesent enim sem, porttitor rutrum pellentesque et, viverra fringilla quam. Aliquam erat volutpat. </div>
+                  								</div>
+  							
+   
+   
+   </div>
+   
+   
+   
+				   
+				 <div class="col-2" style="background: #000000;font-size: 9px;height: 2844.52px;min-height: 23px;">
+				                
+				                
+				                <p class="description" style="text-align: center;">&nbsp;</p>
+				            
+				                      <p>  <h2 id="titulo-3" class="c-titulo2" style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">Nuevas tematicas<br></h2>class="new1">>
+				            <p class="c-corpo" style="color: rgb(255,255,255);">Apresentamos também, nessa aula, três personagens que vão nos acompanhar nesta formação em Educação Financeira Pessoal: Marta, Aílton e Joana. São perfis que revelam comportamentos distintos em relação às finanças pessoais. Com eles nos aproximamos um pouco mais da vida prática, do cotidiano de pessoas que têm muitos sonhos e também muitas dúvidas.<br></p><img class="img-fluid" src="img/alda 1ss.png">
+				           <p> <h2 id="titulo-3" class="c-titulo2" style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">Forma de Contactar<br></h2>
 
-Suspendisse ac orci eu augue malesuada feugiat. Nunc vitae enim orci. In hac habitasse platea dictumst. Nam ac tempus leo. Phasellus vitae sem tempus, sollicitudin quam vel, vehicula tellus. Maecenas urna odio, imperdiet nec orci sed, vulputate bibendum ipsum. Maecenas a bibendum nulla. Morbi ornare neque et lorem laoreet efficitur. Mauris non lacus vel mauris viverra viverra. Pellentesque id massa nec libero dignissim vulputate. Suspendisse sollicitudin risus vitae mauris mollis, quis congue nibh fringilla. Pellentesque sit amet tincidunt neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta sapien eget nisi rutrum, vitae imperdiet magna ornare.
+				           <p> <h2 id="titulo-3" class="c-titulo2" style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">Contacto<br></h2>
+				
+									<div class="mb-3">
+									  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+									  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+									</div>
+									<div class="mb-3">
+									  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+									 </div>
+						</div>
 
-Integer posuere, metus non porta dignissim, dui nulla viverra urna, in consequat dui lorem ut justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eget nunc mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a egestas sapien. Curabitur sagittis, elit posuere elementum egestas, odio diam bibendum orci, ut imperdiet leo nisl in elit. Duis lorem odio, rhoncus vitae orci eget, imperdiet dapibus dui. Sed non sapien ligula. Nullam ac porttitor mi. Morbi semper mauris vitae lacus commodo, eleifend pharetra quam fringilla. Phasellus non malesuada enim.
-
-Curabitur bibendum nulla a viverra blandit. Curabitur nibh erat, rutrum nec ultricies sit amet, bibendum lacinia elit. Donec eu porta leo. Donec in justo rhoncus, venenatis libero eget, sagittis sapien. Phasellus fringilla maximus ante, ut auctor tellus condimentum vitae. Sed dignissim luctus mi, eu pretium urna posuere id. In quis lacus eget odio iaculis accumsan sit amet non nisi. Donec ornare posuere erat quis luctus. Ut eleifend gravida metus quis feugiat. Praesent vulputate convallis lorem quis placerat. Praesent enim sem, porttitor rutrum pellentesque et, viverra fringilla quam. Aliquam erat volutpat.
-    </div>
-    <div class="col">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra bibendum lacus id sagittis. Aliquam maximus aliquam mi vitae dapibus. Quisque venenatis hendrerit odio bibendum varius. Aliquam at libero metus. Fusce ultricies sapien non elit tempor, quis efficitur felis iaculis. Proin a rhoncus erat. Etiam maximus, turpis non aliquet faucibus, sapien sem commodo metus, in ultricies leo odio quis ligula. Nam congue massa sed blandit bibendum. Nam luctus dolor id libero interdum auctor. Quisque quis odio enim. Quisque rutrum varius dolor, eu pretium nisl tristique luctus. Aenean sagittis facilisis sapien ac mollis. Fusce at lacinia leo. Sed gravida lectus vitae nibh convallis, nec varius lectus maximus. Aenean condimentum nunc id tristique euismod. In iaculis et neque ut interdum.
-
-Suspendisse ac orci eu augue malesuada feugiat. Nunc vitae enim orci. In hac habitasse platea dictumst. Nam ac tempus leo. Phasellus vitae sem tempus, sollicitudin quam vel, vehicula tellus. Maecenas urna odio, imperdiet nec orci sed, vulputate bibendum ipsum. Maecenas a bibendum nulla. Morbi ornare neque et lorem laoreet efficitur. Mauris non lacus vel mauris viverra viverra. Pellentesque id massa nec libero dignissim vulputate. Suspendisse sollicitudin risus vitae mauris mollis, quis congue nibh fringilla. Pellentesque sit amet tincidunt neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta sapien eget nisi rutrum, vitae imperdiet magna ornare.
-
-Integer posuere, metus non porta dignissim, dui nulla viverra urna, in consequat dui lorem ut justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eget nunc mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a egestas sapien. Curabitur sagittis, elit posuere elementum egestas, odio diam bibendum orci, ut imperdiet leo nisl in elit. Duis lorem odio, rhoncus vitae orci eget, imperdiet dapibus dui. Sed non sapien ligula. Nullam ac porttitor mi. Morbi semper mauris vitae lacus commodo, eleifend pharetra quam fringilla. Phasellus non malesuada enim.
-
-Curabitur bibendum nulla a viverra blandit. Curabitur nibh erat, rutrum nec ultricies sit amet, bibendum lacinia elit. Donec eu porta leo. Donec in justo rhoncus, venenatis libero eget, sagittis sapien. Phasellus fringilla maximus ante, ut auctor tellus condimentum vitae. Sed dignissim luctus mi, eu pretium urna posuere id. In quis lacus eget odio iaculis accumsan sit amet non nisi. Donec ornare posuere erat quis luctus. Ut eleifend gravida metus quis feugiat. Praesent vulputate convallis lorem quis placerat. Praesent enim sem, porttitor rutrum pellentesque et, viverra fringilla quam. Aliquam erat volutpat.
-    </div>
-    <div class="col">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra bibendum lacus id sagittis. Aliquam maximus aliquam mi vitae dapibus. Quisque venenatis hendrerit odio bibendum varius. Aliquam at libero metus. Fusce ultricies sapien non elit tempor, quis efficitur felis iaculis. Proin a rhoncus erat. Etiam maximus, turpis non aliquet faucibus, sapien sem commodo metus, in ultricies leo odio quis ligula. Nam congue massa sed blandit bibendum. Nam luctus dolor id libero interdum auctor. Quisque quis odio enim. Quisque rutrum varius dolor, eu pretium nisl tristique luctus. Aenean sagittis facilisis sapien ac mollis. Fusce at lacinia leo. Sed gravida lectus vitae nibh convallis, nec varius lectus maximus. Aenean condimentum nunc id tristique euismod. In iaculis et neque ut interdum.
-
-Suspendisse ac orci eu augue malesuada feugiat. Nunc vitae enim orci. In hac habitasse platea dictumst. Nam ac tempus leo. Phasellus vitae sem tempus, sollicitudin quam vel, vehicula tellus. Maecenas urna odio, imperdiet nec orci sed, vulputate bibendum ipsum. Maecenas a bibendum nulla. Morbi ornare neque et lorem laoreet efficitur. Mauris non lacus vel mauris viverra viverra. Pellentesque id massa nec libero dignissim vulputate. Suspendisse sollicitudin risus vitae mauris mollis, quis congue nibh fringilla. Pellentesque sit amet tincidunt neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta sapien eget nisi rutrum, vitae imperdiet magna ornare.
-
-Integer posuere, metus non porta dignissim, dui nulla viverra urna, in consequat dui lorem ut justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque eget nunc mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a egestas sapien. Curabitur sagittis, elit posuere elementum egestas, odio diam bibendum orci, ut imperdiet leo nisl in elit. Duis lorem odio, rhoncus vitae orci eget, imperdiet dapibus dui. Sed non sapien ligula. Nullam ac porttitor mi. Morbi semper mauris vitae lacus commodo, eleifend pharetra quam fringilla. Phasellus non malesuada enim.
-
-Curabitur bibendum nulla a viverra blandit. Curabitur nibh erat, rutrum nec ultricies sit amet, bibendum lacinia elit. Donec eu porta leo. Donec in justo rhoncus, venenatis libero eget, sagittis sapien. Phasellus fringilla maximus ante, ut auctor tellus condimentum vitae. Sed dignissim luctus mi, eu pretium urna posuere id. In quis lacus eget odio iaculis accumsan sit amet non nisi. Donec ornare posuere erat quis luctus. Ut eleifend gravida metus quis feugiat. Praesent vulputate convallis lorem quis placerat. Praesent enim sem, porttitor rutrum pellentesque et, viverra fringilla quam. Aliquam erat volutpat.
-    </div>
-  </div>
+</div>
 </div>
 
 
 
-</div>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
 
 
-
+ 
 </body>
 
 </html>

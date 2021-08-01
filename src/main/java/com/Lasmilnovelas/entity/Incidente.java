@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,21 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="incidente")
 public class Incidente implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue
-	@Column(name="id")
 	private Long id;
 	
 
@@ -54,13 +47,10 @@ public class Incidente implements Serializable{
 	@Column(length =450, name="url")
 	private String url;
 	
+	@Column(length =450, name="incidencia")
+	private String incidencia;
 	
-	@ManyToMany
-	@JoinTable(name = "incidente_personaje",
-	joinColumns = @JoinColumn(name = "id_incidente", referencedColumnName = "id"),
-	inverseJoinColumns = @JoinColumn(name = "id_etiquetas", referencedColumnName = "id"))
-	private List<Personaje> personaje  = new ArrayList<>();
-
+	
 
 	
 	
@@ -95,6 +85,16 @@ public class Incidente implements Serializable{
 	}
 
 
+
+
+	public String getIncidencia() {
+		return incidencia;
+	}
+
+
+	public void setIncidencia(String incidencia) {
+		this.incidencia = incidencia;
+	}
 
 
 	public Historia getHistoria() {
@@ -139,14 +139,6 @@ public class Incidente implements Serializable{
 	}
 
 
-	public List<Personaje> getPersonaje() {
-		return personaje;
-	}
-
-
-	public void setPersonaje(List<Personaje> personaje) {
-		this.personaje = personaje;
-	}
 
 
 	public static long getSerialversionuid() {
@@ -155,10 +147,11 @@ public class Incidente implements Serializable{
 
 
 	public Incidente(String nombre, Historia historia,
-			 Integer orden,
+			 Integer orden, String incidencia,
 			String descripcion, String descripcion_g, String url)
 	{
 		super();
+		this.incidencia = incidencia;
 		this.nombre = nombre;
 		this.historia = historia;
 		this.descripcion = descripcion;

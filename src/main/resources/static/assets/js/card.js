@@ -11,8 +11,8 @@ $(document).ready(function() {
          //scrollCollapse: true,
          "pagingType": "simple_numbers",
          "processing": true,
-         'pageLength': 9,
-         'lengthMenu': [ [9, 12, 15, -1], [9, 12, 15, "Todas"] ],
+         'pageLength': 8,
+         'lengthMenu': [ [8, 12, 16, -1], [9, 12, 16, "Todas"] ],
     
     
     

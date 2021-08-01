@@ -21,21 +21,48 @@ public class Genero implements Serializable{
 
 	
 	private static final long serialVersionUID = 1L;
-
+	@Id
+	@GeneratedValue
+	private Long id;
 
 	@OneToMany(mappedBy = "genero", cascade = CascadeType.ALL)
 	private List<Historia> historias = new ArrayList<Historia>();
     
-	
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY )
-	private Long Idgenero;
-	
-	
 	@Column(length =50, name="nombre")
 	private String nombre;
 	
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public List<Historia> getHistorias() {
 		return historias;
@@ -45,13 +72,7 @@ public class Genero implements Serializable{
 		this.historias = historias;
 	}
 
-	public Long getIdgenero() {
-		return Idgenero;
-	}
 
-	public void setIdgenero(Long idgenero) {
-		Idgenero = idgenero;
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -66,6 +87,23 @@ public class Genero implements Serializable{
 		return serialVersionUID;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Genero(List<Historia> historias, String nombre) {
 		super();
 		this.historias = historias;

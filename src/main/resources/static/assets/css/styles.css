@@ -2,3 +2,19 @@ hr.new1 {
   border-top: 1px solid white;
 }
 
+#demoFont {
+font-family: Verdana, Geneva, sans-serif;
+font-size: 12px;
+letter-spacing: 0.2px;
+word-spacing: -0.8px;
+color: #000000;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+
+.container-xxl {
+    max-width: 5320px;
+}

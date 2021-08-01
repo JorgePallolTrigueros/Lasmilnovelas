@@ -15,13 +15,10 @@ import javax.persistence.Table;
 @Table(name="galeria")
 public class Galeria implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY )
-	private Long Id;
+	@GeneratedValue
+	private Long id;
 	
 	
 	@Column(length =550, name="url")
@@ -31,6 +28,11 @@ public class Galeria implements Serializable{
 	@JoinColumn(name = "id_historia")
 	private Historia historia;
 
+	
+	
+	
+	
+	
 	public String getUrl() {
 		return url;
 	}
@@ -47,6 +49,12 @@ public class Galeria implements Serializable{
 		this.historia = historia;
 	}
 
+	
+	
+	
+	
+	
+	
 	public Galeria(String url, Historia historia) {
 		super();
 		this.url = url;

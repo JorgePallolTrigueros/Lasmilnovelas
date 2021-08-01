@@ -1,6 +1,6 @@
 .cards tbody tr {
    float: left;
-   width: calc(33% - 12px);
+   width: calc(25% - 25px);
    margin: 0.5rem;
    border: 0.0625rem solid rgba(0, 0, 0, .125);
    border-radius: .25rem;

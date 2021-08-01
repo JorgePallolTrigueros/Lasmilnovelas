@@ -16,31 +16,34 @@ public class Etiqueta  implements  Serializable{
 
 
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
-
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY )
-	private Long Id;
+	@GeneratedValue
+	private Long id;
 	
 	
+	
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
 	@Column(length =50, name="nombre")
 	private String nombre;
 
-
-	public Long getId() {
-		return Id;
-	}
-
-
-	public void setIdetiqueta(Long id) {
-		Id = id;
-	}
-
-
+	
+	
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
