@@ -1,6 +1,8 @@
 package com.Lasmilnovelas.controller;
 
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.Map;
 import java.util.List;
 import java.util.Optional;
@@ -10,8 +12,10 @@ import java.util.stream.IntStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +32,7 @@ import com.Lasmilnovelas.Repository.GaleriaRepository;
 import com.Lasmilnovelas.Repository.PersonajeRepository;
 import com.Lasmilnovelas.Repository.GeneroRepository;
 import com.Lasmilnovelas.service.HistoriaSreviceAPI;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class HistoriaController {
@@ -144,9 +149,28 @@ public class HistoriaController {
 
 
 
-	@PostMapping("/historias")
-	public String saveHistoria(@ModelAttribute("historia") Historia historia) {
+	@PostMapping(value = "/historias" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+	public String saveHistoria(@RequestParam("image") MultipartFile file, @ModelAttribute("historia") Historia historia) {
+
 		System.out.println(historia);
+
+		//si el archivo no es nulo y no esta vacio
+		if(file!=null && !file.isEmpty()){
+			System.out.println("image: "+file.getName()+"  , original name:  "+file.getOriginalFilename()+" , content type: "+file.getContentType()+" , empty: "+file.isEmpty()+" , size: "+file.getSize());
+			String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+			//si el nombre del archivo contiene dos puntos
+			if(fileName.contains(".."))
+			{
+				System.out.println("archivo no valido");
+			}else{
+				try {
+					historia.setImagen(Base64.getEncoder().encodeToString(file.getBytes()));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 		historiaRepository.save(historia);
 		// Si queremos operar con el FilmProducer asociado a esta historia lo podemos obtener con getter:
 		// historia.getFilmProducer().getYear()

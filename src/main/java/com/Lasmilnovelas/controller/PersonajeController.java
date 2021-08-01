@@ -1,34 +1,41 @@
 package com.Lasmilnovelas.controller;
 
+
+import java.io.IOException;
+import java.util.Base64;
 import java.util.Map;
 import java.util.List;
 import java.util.Optional;
-
 import javax.servlet.http.HttpSession;
-
-
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
-
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.Lasmilnovelas.Repository.GrupoRepository;
-import com.Lasmilnovelas.Repository.PersonajeRepository;
+import com.Lasmilnovelas.entity.Galeria;
+import com.Lasmilnovelas.entity.Historia;
+import com.Lasmilnovelas.entity.Incidente;
 import com.Lasmilnovelas.entity.Personaje;
+import com.Lasmilnovelas.Repository.HistoriaRepository;
+import com.Lasmilnovelas.Repository.IncidenteRepository;
+import com.Lasmilnovelas.Repository.EtiquetaRepository;
+import com.Lasmilnovelas.Repository.GaleriaRepository;
+import com.Lasmilnovelas.Repository.PersonajeRepository;
+import com.Lasmilnovelas.Repository.GeneroRepository;
+import com.Lasmilnovelas.Repository.GrupoRepository;
+import com.Lasmilnovelas.service.HistoriaSreviceAPI;
 import com.Lasmilnovelas.service.PersonajeSreviceAPI;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class PersonajeController {
@@ -115,9 +122,27 @@ public class PersonajeController {
 	
 
 
-	@PostMapping("/personajes")
-	public String saveHistoria(@ModelAttribute("personaje") Personaje personaje) {
+	@PostMapping(value ="/personajes" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+	public String savePersonaje(@RequestParam("image") MultipartFile file, @ModelAttribute("personaje") Personaje personaje) {
 		System.out.println(personaje);
+
+		//si el archivo no es nulo y no esta vacio
+		if(file!=null && !file.isEmpty()){
+			System.out.println("image: "+file.getName()+"  , original name:  "+file.getOriginalFilename()+" , content type: "+file.getContentType()+" , empty: "+file.isEmpty()+" , size: "+file.getSize());
+			String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+			//si el nombre del archivo contiene dos puntos
+			if(fileName.contains(".."))
+			{
+				System.out.println("archivo no valido");
+			}else{
+				try {
+					personaje.setImagen(Base64.getEncoder().encodeToString(file.getBytes()));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 		personajesRepository.save(personaje);
 		return "redirect:/personajes";
 	}

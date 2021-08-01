@@ -208,22 +208,17 @@ text-transform: capitalize;
 			
 			
 			
-			<form th:action="@{/historias/save}"  th:object="${historia}" method="post" enctype="multipart/form-data" >
 
-    <div>
-     
-    <label>Photos: </label>
-    <input type="file" name="image" accept="image/png, image/jpeg" />
-     
-    </div>
-
-</form>
 			
-		<hr/>		
-		<hr/>		
-		<hr/>			
+			
 
-				<form th:action="@{/historias}" th:object="${historia}" method="POST">
+			      <form th:action="@{/historias}" th:object="${historia}" method="POST" enctype="multipart/form-data">
+
+
+                        <div>
+                            <label>Photos: </label>
+                            <input type="file" name="image" id="image" accept="image/png, image/jpeg"/>
+                        </div>
 
 					<input type="hidden" th:field="*{id}">
 					<input type="hidden" th:field="*{url}">

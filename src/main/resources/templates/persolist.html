@@ -204,9 +204,9 @@
 						      <tbody>
 						       <tr th:each="personaje:${personajes}"><td> <span th:utext="${personaje.nombre}"></span></td>
 						           <td> <span th:utext="${personaje.descripcion}"></span></td>
-									<td><img width="200"  th:src="@{ ${'/img/' + personaje.personaje_url}}"></td>
-						           
-						 
+									<td><img width="100"  th:src="@{ ${'/img/' + personaje.personaje_url}}">
+						           <img width="100" th:src="@{ ${'data:image/jpeg;base64,' + personaje.personaje_url}}"/>
+						 </td>
 						           <td>
 										<a  th:href="@{/personajes/{id}/view(id=${personaje.id})}">Ver</a>
 										<a  th:href="@{/personajes/{id}/edit(id=${personaje.id})}">Editar</a>

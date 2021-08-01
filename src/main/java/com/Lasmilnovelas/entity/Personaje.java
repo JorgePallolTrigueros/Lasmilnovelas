@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,7 +29,9 @@ public class Personaje implements Serializable{
 	private String nombre;
 	
 
-	
+	@Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String imagen;
 	
 	
 	
@@ -114,6 +117,14 @@ public class Personaje implements Serializable{
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	public String getCabello() {
@@ -211,7 +222,7 @@ public class Personaje implements Serializable{
 			String nacionalidad,
 			String profesion, 
 			String corpulencia,
-
+			String imagen,
 			 List<Galeria_personaje> Galeria_personaje) {
 		super();
 		this.nombre = nombre;
@@ -221,6 +232,7 @@ public class Personaje implements Serializable{
 		this.descripcion = descripcion;
 		this.edad= edad;
 		this.sexo=sexo; 
+		this.imagen=imagen;
 		this.grupo =grupo;
 		this.cabello=cabello;
 		this.nacionalidad=nacionalidad; 

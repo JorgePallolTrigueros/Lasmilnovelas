@@ -185,7 +185,15 @@ text-transform: capitalize;
 				<img src="../../img/3.png" style="width: 809px;">
 				<h1>Vista de grupo  <span th:text="${grupo.id}"></span></h1>
 				<hr>
-						<form th:action="@{/grupos}" th:object="${grupo}" method="POST">
+						<form th:action="@{/grupos}" th:object="${grupo}" method="POST" method="POST" enctype="multipart/form-data">
+
+
+                        <div>
+                            <label>Photos: </label>
+                            <input type="file" name="image" id="image" accept="image/png, image/jpeg"/>
+                        </div>
+                        
+                        
 							<input type="hidden" th:field="*{id}">
 							<div class="mb-3">
 								<label for="model" class="form-label">Nombre</label>

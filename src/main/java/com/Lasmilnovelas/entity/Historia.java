@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.*;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -34,6 +35,12 @@ public class Historia implements Serializable{
 	
 	@Column(length =50, name="nombre")
 	private String nombre;
+	
+	
+	
+	@Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String imagen;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_genero")
@@ -220,6 +227,17 @@ public class Historia implements Serializable{
 		this.autor = autor;
 	}
 
+	
+	
+	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public Historia(
 			Long id, 
 			String nombre, 
@@ -228,6 +246,7 @@ public class Historia implements Serializable{
 			String descripcion_g,
 			String url, 
 			String incidencia,
+			String imagen,
 			Integer edad_recomendada,
 			Integer numero_de_Capitulos, 
 			String autor
@@ -238,6 +257,7 @@ public class Historia implements Serializable{
 		this.nombre = nombre;
 		this.incidencia = incidencia;
 		this.genero = genero;
+		this.imagen = imagen;
 		this.descripcion = descripcion;
 		this.descripcion_g = descripcion_g;
 		this.url = url;

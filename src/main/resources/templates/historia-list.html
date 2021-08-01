@@ -256,7 +256,11 @@ text-transform: capitalize;
       <tbody>
        <tr th:each="histori:${historias}"><td> <span th:utext="${histori.nombre}"></span></td>
             <td class="columna-50-porciento"><span id="demoFont" th:utext="${histori.descripcion}"></span></td>
-			<td class="columna-50-porciento"><img width="300"  th:src="@{ ${'/img/' + histori.url}}">
+            
+            
+            
+			<td class="columna-50-porciento"><img width="100" th:src="@{ ${'data:image/jpeg;base64,' + histori.imagen}}"/>
+			<img width="100"  th:src="@{ ${'/img/' + histori.url}}">
 			
 					<span style="display:none;" class="solo-visible-en-cards" >
 						Etiquetas 1 <br/>
