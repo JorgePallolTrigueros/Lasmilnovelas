@@ -76,8 +76,16 @@ public class HistoriaController {
 	
 	@GetMapping({"/historias/{id_historia}/insertpersonajeenhistoria"})
 	public String insertpersonajeenhistoria(@PathVariable Long id_historia, Model model) {
-		Optional<Personaje> personajeOpt = personajesRepository.findById(id_historia);
-		model.addAttribute("personajes", personajeOpt.get());
+
+		//establecer el id de la historia al modelo
+		model.addAttribute("idHistoria",id_historia);
+
+		//crear el personaje
+		Personaje personaje = new Personaje();
+		//asignarle historia
+		personaje.setHistoria(historiaRepository.findById(id_historia).get());
+		//se llena personaje en el modelo
+		model.addAttribute("personaje", personaje);
 	
 		return "insertpersonajeenhistoria";
 	}

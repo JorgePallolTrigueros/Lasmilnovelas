@@ -123,8 +123,14 @@ public class PersonajeController {
 
 
 	@PostMapping(value ="/personajes" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-	public String savePersonaje(@RequestParam("image") MultipartFile file, @ModelAttribute("personaje") Personaje personaje) {
+	public String savePersonaje(@RequestParam("image") MultipartFile file, @ModelAttribute("personaje") Personaje personaje,@ModelAttribute("idHistoria") Long idHistoria) {
+		System.out.println("Guardando personaje");
 		System.out.println(personaje);
+		System.out.println("Historia");
+		if(idHistoria!=null){
+			System.out.println("Se lleno la idHistoria "+idHistoria);
+			personaje.setHistoria(new Historia(idHistoria));
+		}
 
 		//si el archivo no es nulo y no esta vacio
 		if(file!=null && !file.isEmpty()){

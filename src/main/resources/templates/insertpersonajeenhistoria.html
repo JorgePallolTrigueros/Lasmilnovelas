@@ -178,11 +178,30 @@
                 <hr>
                 <div class="row">
                     <div class="col-8">
-                        <form th:action="@{/personajes}" th:object="${personaje}" method="POST">
+                        <form th:action="@{/personajes}" th:object="${personaje}" method="POST" enctype="multipart/form-data">
+
+                            <!-- agregando el id de la historia -->
+                            <input type="hidden" name="idHistoria" id="idHistoria" th:value="*{historia.id}">
+
+
+                            <div>
+                                <label>Photos: </label>
+                                <input type="file" name="image" id="image" accept="image/png, image/jpeg"/>
+                            </div>
+
+
+
+                            <!--
                            <div class="mb-3">
                                 <label for="model" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="id_historia" th:field="*{id_historia}">
-                            </div>                
+                            </div>
+                            -->
+
+                            <div class="mb-3">
+                                <label for="model" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="1"  th:value="*{historia}">
+                            </div>
                          
                             <div class="mb-3">
                                 <label for="model" class="form-label">Nombre</label>

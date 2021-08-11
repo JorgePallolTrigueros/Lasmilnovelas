@@ -266,17 +266,34 @@ public class Historia implements Serializable{
 		this.autor = autor;
 	}
 
+	public Historia(Long id) {
+		this.id = id;
+	}
+
 	public Historia() {
 	
 	}
-	
-	
-	
 
 
-
-
-	
-	
-	
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Historia{");
+		sb.append("id=").append(id);
+		sb.append(", nombre='").append(nombre).append('\'');
+		sb.append(", imagen='").append(imagen!=null?"SI":"NO").append('\'');
+		sb.append(", genero=").append(genero!=null?genero.getId():"null");
+		sb.append(", autor='").append(autor).append('\'');
+		sb.append(", descripcion='").append(descripcion).append('\'');
+		sb.append(", descripcion_g='").append(descripcion_g).append('\'');
+		sb.append(", edad_recomendada=").append(edad_recomendada);
+		sb.append(", numero_de_Capitulos=").append(numero_de_Capitulos);
+		sb.append(", url='").append(url).append('\'');
+		sb.append(", etiquetas=").append(etiquetas!=null?etiquetas.size():"null");
+		sb.append(", personajes=").append(personajes!=null?personajes.size():"null");
+		sb.append(", incidentes=").append(incidentes!=null?incidentes.size():"null");
+		sb.append(", galerias=").append(galerias!=null?galerias.size():"null");
+		sb.append(", incidencia='").append(incidencia).append('\'');
+		sb.append('}');
+		return sb.toString();
+	}
 }

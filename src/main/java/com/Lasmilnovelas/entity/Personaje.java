@@ -77,10 +77,10 @@ public class Personaje implements Serializable{
 	@JoinColumn(name = "id_grupo")
 	private Grupo grupo;
 
+
 	@ManyToOne
 	@JoinColumn(name = "id_historia")
 	private Historia historia;
-
 
 
 
