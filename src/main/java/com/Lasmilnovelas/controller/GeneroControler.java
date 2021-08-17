@@ -21,6 +21,7 @@ import com.Lasmilnovelas.Repository.HistoriaRepository;
 import com.Lasmilnovelas.Repository.PersonajeRepository;
 import com.Lasmilnovelas.entity.Genero;
 import com.Lasmilnovelas.entity.Historia;
+import com.Lasmilnovelas.entity.Incidente;
 
 @Controller
 public class GeneroControler {
@@ -46,19 +47,20 @@ public class GeneroControler {
 
 
 
-	@GetMapping({"/inserthistoriaengenero/{id}/"})
-	public String inserthistoriaengenero(@PathVariable Long id, Model model) {
-		Optional<Historia> historiaOpt = historiaRepository.findById(id);
-		if (!historiaOpt.isPresent()) {
-			model.addAttribute("error", "ID Galeria not found.");
-			model.addAttribute("personajes", historiaRepository.findAll());
-			return "historia-list";
-		}
-		model.addAttribute("historia", historiaOpt.get());
+	@GetMapping({"/generos/{id_genero}/inserthistoriaengenero"})
+	public String inserthistoriaengenero(@PathVariable Long id_genero, Model model) {
+		//establecer el id de la historia al modelo
+		model.addAttribute("idGenero",id_genero);
+
+		//crear el personaje
+		Historia historia = new Historia();
+		//asignarle historia
+		historia.setGenero(generoRepository.findById(id_genero).get());
+		//se llena personaje en el modelo
+		model.addAttribute("historia", historia);
 		return "historiaengenero";
 	}
 	
-
 
 
 
@@ -87,8 +89,7 @@ public class GeneroControler {
 	public String newGenero(Model model) {
 		model.addAttribute("genero", new Genero());
 		model.addAttribute("genero", generoRepository.findAll());
-		model.addAttribute("etiquetasDBList", etiquetaRepository.findAll());
-		model.addAttribute("personajeDBList", personajesRepository.findAll());	
+
 		
 		return "genero-edit";
 		
@@ -106,9 +107,6 @@ public class GeneroControler {
 	public String editGenero(@PathVariable Long id, Model model) {
 		model.addAttribute("genero", generoRepository.findById(id).get());
 		model.addAttribute("genero", generoRepository.findAll());
-		model.addAttribute("etiquetasDBList", etiquetaRepository.findAll());
-		model.addAttribute("generoDBList", generoRepository.findAll());
-		model.addAttribute("personajeDBList", personajesRepository.findAll());	
 		return "genero-edit";
 		
 	}

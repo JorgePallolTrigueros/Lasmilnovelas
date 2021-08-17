@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.Lasmilnovelas.entity.Galeria;
+import com.Lasmilnovelas.entity.Genero;
 import com.Lasmilnovelas.entity.Historia;
 import com.Lasmilnovelas.entity.Incidente;
 import com.Lasmilnovelas.entity.Personaje;
@@ -66,9 +67,17 @@ public class HistoriaController {
 	
 
 
-	@GetMapping({"\"/historias/{id_historia}/insertgaleriaenhistoria"})
+	@GetMapping({"/historias/{id_historia}/insertgaleriaenhistoria"})
 	public String insertgaleriaenhistoria(@PathVariable Long id_historia, Model model) {
-		model.addAttribute("id_historia", historiaRepository.findById(id_historia).get());
+		//establecer el id de la historia al modelo
+		model.addAttribute("idHistoria",id_historia);
+
+		//crear el personaje
+		Galeria galeria = new Galeria();
+		//asignarle historia
+		galeria.setHistoria(historiaRepository.findById(id_historia).get());
+		//se llena galeria en el modelo
+		model.addAttribute("galeria", galeria);
 		return "galeriaenhistoria";
 	}
 
@@ -86,11 +95,26 @@ public class HistoriaController {
 		personaje.setHistoria(historiaRepository.findById(id_historia).get());
 		//se llena personaje en el modelo
 		model.addAttribute("personaje", personaje);
-	
+		
 		return "insertpersonajeenhistoria";
 	}
 	
 
+	@GetMapping({"/historias/{id_historia}/insertcapituloenhistoria"})
+	public String insertcapituloenhistoria(@PathVariable Long id_historia, Model model) {
+
+		//establecer el id de la historia al modelo
+		model.addAttribute("idHistoria",id_historia);
+
+		//crear el personaje
+		Incidente incidente = new Incidente();
+		//asignarle historia
+		incidente.setHistoria(historiaRepository.findById(id_historia).get());
+		//se llena personaje en el modelo
+		model.addAttribute("incidente", incidente);
+		
+		return "capituloenhistoria";
+	}
 
 
 
@@ -131,12 +155,6 @@ public class HistoriaController {
 	
 	
 	
-	@GetMapping("insertgaleriaenhistoria")
-	public String insertCapitulo(@PathVariable Long id, Model model) {
-		model.addAttribute("historia", historiaRepository.findById(id).get());	
-		return "newcapitulo";
-		
-	}
 
 	
 	
@@ -157,10 +175,15 @@ public class HistoriaController {
 
 
 
-	@PostMapping(value = "/historias" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-	public String saveHistoria(@RequestParam("image") MultipartFile file, @ModelAttribute("historia") Historia historia) {
-
+	@PostMapping(value ="/historias" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+	public String saveHistoria(@RequestParam("image") MultipartFile file, @ModelAttribute("genero") Historia historia,@ModelAttribute("idGenero") Long idGenero) {
+		System.out.println("Guardando Historia");
 		System.out.println(historia);
+		System.out.println("Historia");
+		if(idGenero!=null){
+			System.out.println("Se lleno la idGenero "+idGenero);
+			historia.setGenero(new Genero(idGenero));
+		}
 
 		//si el archivo no es nulo y no esta vacio
 		if(file!=null && !file.isEmpty()){
@@ -180,11 +203,9 @@ public class HistoriaController {
 		}
 
 		historiaRepository.save(historia);
-		// Si queremos operar con el FilmProducer asociado a esta historia lo podemos obtener con getter:
-		// historia.getFilmProducer().getYear()
 		return "redirect:/historias";
 	}
-	
+
 	
 
 

@@ -1,19 +1,27 @@
 package com.Lasmilnovelas.controller;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.Lasmilnovelas.Repository.GaleriaRepository;
 import com.Lasmilnovelas.entity.Galeria;
+import com.Lasmilnovelas.entity.Historia;
+import com.Lasmilnovelas.entity.Incidente;
 @Controller
 public class GaleriaController {
 
@@ -94,14 +102,45 @@ public class GaleriaController {
 
 
 
-	@PostMapping("/Galeria")
-	public String saveGaleria(@ModelAttribute("galeria") Galeria galeria) {
+	@PostMapping(value ="/galerias" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+	public String saveGaleria(@RequestParam("image") MultipartFile file, @ModelAttribute("galeria") Galeria galeria,@ModelAttribute("idHistoria") Long idHistoria) {
+		System.out.println("Guardando Galeria");
 		System.out.println(galeria);
-		galeriaRepository.save(galeria);
-		return "redirect:/Galeria";
-	}
-	
+		System.out.println("Galeria");
+		if(idHistoria!=null){
+			System.out.println("Se lleno la idHistoria "+idHistoria);
+			galeria.setHistoria(new Historia(idHistoria));
+		}
 
+		//si el archivo no es nulo y no esta vacio
+		if(file!=null && !file.isEmpty()){
+			System.out.println("image: "+file.getName()+"  , original name:  "+file.getOriginalFilename()+" , content type: "+file.getContentType()+" , empty: "+file.isEmpty()+" , size: "+file.getSize());
+			String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+			//si el nombre del archivo contiene dos puntos
+			if(fileName.contains(".."))
+			{
+				System.out.println("archivo no valido");
+			}else{
+				try {
+					galeria.setImagen(Base64.getEncoder().encodeToString(file.getBytes()));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		galeriaRepository.save(galeria);
+		return "redirect:/galerias";
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 	@GetMapping("/Galeria/{id}/delete")

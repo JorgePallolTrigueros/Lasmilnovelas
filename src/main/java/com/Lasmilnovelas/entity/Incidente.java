@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -44,14 +45,14 @@ public class Incidente implements Serializable{
 	@Column(length =550, name="descripcion_g")
 	private String descripcion_g;
 	
-	@Column(length =450, name="url")
-	private String url;
 	
 	@Column(length =450, name="incidencia")
 	private String incidencia;
 	
 	
-
+	@Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String imagen;
 	
 	
 	
@@ -129,16 +130,16 @@ public class Incidente implements Serializable{
 
 
 
-	public String getUrl() {
-		return url;
+
+
+	public String getImagen() {
+		return imagen;
 	}
 
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
-
-
 
 
 	public static long getSerialversionuid() {
@@ -147,17 +148,18 @@ public class Incidente implements Serializable{
 
 
 	public Incidente(String nombre, Historia historia,
-			 Integer orden, String incidencia,
-			String descripcion, String descripcion_g, String url)
+			 Integer orden, String incidencia,String imagen,
+			String descripcion, String descripcion_g)
 	{
 		super();
 		this.incidencia = incidencia;
 		this.nombre = nombre;
+		this.imagen = imagen;
 		this.historia = historia;
 		this.descripcion = descripcion;
 		this.descripcion_g = descripcion_g;
 		this.orden  = orden;
-		this.url = url;
+
 	}
 	
 	public Incidente() {
