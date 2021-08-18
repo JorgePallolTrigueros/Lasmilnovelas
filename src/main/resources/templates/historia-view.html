@@ -102,14 +102,12 @@ text-transform: capitalize;
 
 <a class="navbar-brand" href="#" style="font-size: 42px;text-shadow: 0px 0px 9px rgb(255,240,240);transform: perspective(460px);margin-right: 31px;margin-bottom: 0px;margin-left: 102px;font-family: Amarante, serif;">LAS 1000 NOVELAS</a>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ml-auto">
+              <ul class="navbar-nav ml-auto">
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/sobremi}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Sobre Mi</a></li>
                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/grupos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes Por Grupo</a></li>
-                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/personajes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Las Novelas</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/generos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Generos</a></li>
-                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/incidentes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Capitulos</a></li>
-                </ul>
+                             </ul>
             </div>
         </div>
     </nav>
@@ -204,7 +202,7 @@ text-transform: capitalize;
 			
 			
 			<div class="col-4 text-left">
-				<img  width="500" class="img-fluid img-thumbnail" th:src="@{ ${'/img/' + historia.url}}">
+				<img width="100" th:src="@{ ${'data:image/jpeg;base64,' + historia.imagen}}"/>
 			</div>
 
 
@@ -233,7 +231,8 @@ text-transform: capitalize;
 	<div class="container-fluid">
   <div class="row">
 					 <div th:each="personaje: ${historia.personajes}" class="card  col col-lg-2">
-								<img width="300" class="img-fluid " th:src="@{ ${'/img/' + personaje.personaje_url_daz}}"   alt="Card image cap">
+					<img width="100" th:src="@{ ${'data:image/jpeg;base64,' + personaje.personaje_url_daz}}"/>
+								
 				    		<div class="card-body">
 				     			 <h5 class="card-title"><span th:utext="${personaje.nombre}"></span></h5>
 				      			<p class="card-text"><small class="text-muted"><span th:utext="${personaje.descripcion}"></span></small></p>
@@ -305,7 +304,8 @@ text-transform: capitalize;
 <div class="container-fluid">
 		<div class="row">
 			<div th:each="galeria: ${historia.galerias}" class="card  col col-lg-2">
-			<img width="300" class="img-fluid " th:src="@{ ${'/img/' + galeria.url}}"   alt="Card image cap">
+			<img width="100" th:src="@{ ${'data:image/jpeg;base64,' + galeria.imagen}}"/>
+	
 		</div>			 
 </div>
 

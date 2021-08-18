@@ -89,14 +89,12 @@
 
 <a class="navbar-brand" href="#" style="font-size: 42px;text-shadow: 0px 0px 9px rgb(255,240,240);transform: perspective(460px);margin-right: 31px;margin-bottom: 0px;margin-left: 102px;font-family: Amarante, serif;">LAS 1000 NOVELAS</a>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ml-auto">
+              <ul class="navbar-nav ml-auto">
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/sobremi}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Sobre Mi</a></li>
                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/grupos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes Por Grupo</a></li>
-                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/personajes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Personajes</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Las Novelas</a></li>
                     <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/generos}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Generos</a></li>
-                    <li class="nav-item" style="font-family: Amarante, serif;"><a class="nav-link" th:href="@{/incidentes}" style="color: rgb(255,255,255);font-family: Amarante, serif;">Los Capitulos</a></li>
-                </ul>
+                             </ul>
             </div>
         </div>
     </nav>
@@ -181,36 +179,64 @@
                         <form th:action="@{/personajes}" th:object="${personaje}" method="POST" enctype="multipart/form-data">
 
                             <!-- agregando el id de la historia -->
-                            <input type="hidden" name="idHistoria" id="idHistoria" th:value="*{historia.id}">
+                            <input type="text" name="idHistoria" id="idHistoria" th:value="*{historia.id}">
 
 
-                            <div>
+                           <div>
                                 <label>Photos: </label>
                                 <input type="file" name="image" id="image" accept="image/png, image/jpeg"/>
                             </div>
 
-
-
-                            <!--
-                           <div class="mb-3">
-                                <label for="model" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="id_historia" th:field="*{id_historia}">
-                            </div>
-                            -->
-
-                            <div class="mb-3">
-                                <label for="model" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="1"  th:value="*{historia}">
-                            </div>
-                         
                             <div class="mb-3">
                                 <label for="model" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
                             </div>
+                            
+                            
                             <div class="mb-3">
                                 <label for="description" class="form-label">Descripcion</label>
                                 <textarea class="form-control" id="description" rows="3" th:field="*{descripcion}"></textarea>
                             </div>
+                            
+                            
+                               <div class="mb-3">
+                                <label for="edad" class="form-label">Edad</label>
+                                <textarea class="form-control" id="edad" rows="3" th:field="*{edad}"></textarea>
+                            </div>
+                            
+                            
+                            <div class="mb-3">
+                                <label for="cabello" class="form-label">Cabello</label>
+                                <textarea class="form-control" id="cabello" rows="3" th:field="*{cabello}"></textarea>
+                            </div> 
+                                                   
+                             <div class="mb-3">
+                                <label for="corpulencia" class="form-label">Corpulencia</label>
+                                <textarea class="form-control" id="corpulencia" rows="3" th:field="*{corpulencia}"></textarea>
+                            </div>         
+                                                     
+                             <div class="mb-3">
+                                <label for="corpulencia" class="form-label">Corpulencia</label>
+                                <textarea class="form-control" id="profesion" rows="3" th:field="*{profesion}"></textarea>
+                            </div>       
+                                                    
+                              <div class="mb-3">
+                                <label for="sexo" class="form-label">Sexo</label>
+                                <textarea class="form-control" id="sexo" rows="3" th:field="*{sexo}"></textarea>
+                            </div>    
+                                                     
+                            <div class="mb-3">
+                                <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                                <textarea class="form-control" id="nacionalidad" rows="3" th:field="*{nacionalidad}"></textarea>
+                            </div>
+                            
+                            					<label class="form-check-label" for="genero">Grupo</label>
+					<select id="grupo" th:field="*{grupo}" class="form-select" >
+					  <option th:each="grupos: ${grupo}" th:value="${grupos.id}" th:text="${grupos.nombre}"></option>
+					</select>
+                            
+                            
+                            
                             <button type="submit" class="mt-5 btn btn-success">Guardar</button>
                         </form>
                     </div>

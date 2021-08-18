@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,8 +22,7 @@ public class Galeria implements Serializable{
 	private Long id;
 	
 	
-	@Column(length =550, name="url")
-	private String url;
+
 	
 	@ManyToOne
 	@JoinColumn(name = "id_historia")
@@ -30,16 +30,12 @@ public class Galeria implements Serializable{
 
 	
 	
+	@Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String imagen;
 	
 	
-	
-	public String getUrl() {
-		return url;
-	}
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
 
 	public Historia getHistoria() {
 		return historia;
@@ -55,9 +51,17 @@ public class Galeria implements Serializable{
 	
 	
 	
-	public Galeria(String url, Historia historia) {
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public Galeria(String url, Historia historia,String imagen) {
 		super();
-		this.url = url;
+		this.imagen = imagen;
 		this.historia = historia;
 	}
 

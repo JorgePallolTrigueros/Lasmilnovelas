@@ -97,6 +97,9 @@ public class Genero implements Serializable{
 	
 	
 	
+	public Genero(Long id) {
+		this.id = id;
+	}
 	
 	
 	
@@ -104,9 +107,8 @@ public class Genero implements Serializable{
 	
 	
 	
-	public Genero(List<Historia> historias, String nombre) {
+	public Genero(String nombre) {
 		super();
-		this.historias = historias;
 		this.nombre = nombre;
 
 	}	

@@ -127,6 +127,7 @@ public class PersonajeController {
 		System.out.println("Guardando personaje");
 		System.out.println(personaje);
 		System.out.println("Historia");
+	
 		if(idHistoria!=null){
 			System.out.println("Se lleno la idHistoria "+idHistoria);
 			personaje.setHistoria(new Historia(idHistoria));
