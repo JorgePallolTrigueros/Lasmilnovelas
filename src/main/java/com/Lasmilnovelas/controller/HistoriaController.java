@@ -2,13 +2,17 @@ package com.Lasmilnovelas.controller;
 
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Base64;
 import java.util.Map;
 import java.util.List;
 import java.util.Optional;
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import com.Lasmilnovelas.service.ImageStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -52,11 +56,20 @@ public class HistoriaController {
 	private IncidenteRepository incidenteRepository;
 	@Autowired
 	private GaleriaRepository galeriaRepository;
-
+	@Autowired
+	private ImageStoreService imageStoreService;
 
 	@GetMapping({"/historias", "/"})
 	public String findHistorias(Model model, HttpSession session) {
-		model.addAttribute("historias", historiaRepository.findAll());
+
+		List<Historia> historias = historiaRepository.findAll();
+
+		for(Historia h:historias){
+			h.setImagen(imageStoreService.base64("imagenes/portada_historia_"+h.getId()+".jpg"));
+		}
+
+		model.addAttribute("historias", historias);
+
 		return "historia-list";
 	}
 	
@@ -124,10 +137,22 @@ public class HistoriaController {
 		Optional<Historia> historiaOpt = historiaRepository.findById(id);
 		if (!historiaOpt.isPresent()) {
 			model.addAttribute("error", "ID historia not found.");
-			model.addAttribute("historias", historiaRepository.findAll());
+
+			List<Historia> historias = historiaRepository.findAll();
+			for(Historia h:historias){
+				h.setImagen(imageStoreService.base64("imagenes/portada_historia_"+h.getId()+".jpg"));
+				h.setUrl(imageStoreService.base64("imagenes/portada_historia_"+h.getId()+".jpg"));
+			}
+
+			model.addAttribute("historias", historias);
 			return "historia-list";
 		}
-		model.addAttribute("historia", historiaOpt.get());
+
+		Historia historia = historiaOpt.get();
+
+		historia.setImagen(imageStoreService.base64("imagenes/portada_historia_"+historia.getId()+".jpg"));
+
+		model.addAttribute("historia", historia);
 		return "historia-view";
 	}
 	
@@ -194,15 +219,26 @@ public class HistoriaController {
 			{
 				System.out.println("archivo no valido");
 			}else{
+
+				/*
 				try {
 					historia.setImagen(Base64.getEncoder().encodeToString(file.getBytes()));
 				} catch (IOException e) {
 					e.printStackTrace();
-				}
+				}*/
 			}
 		}
 
-		historiaRepository.save(historia);
+		//no se conoce el id por que no se ha guardado
+		historia.getId();
+
+		historia = historiaRepository.saveAndFlush(historia);
+
+		//se conoce por que ya se guardo
+		historia.getId();
+
+		imageStoreService.save(file,"portada_historia_"+historia.getId()+".jpg");
+
 		return "redirect:/historias";
 	}
 

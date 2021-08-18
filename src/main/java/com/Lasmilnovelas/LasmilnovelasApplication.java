@@ -1,34 +1,26 @@
 package com.Lasmilnovelas;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.Lasmilnovelas.service.ImageStoreService;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.Lasmilnovelas.Repository.*;
-import com.Lasmilnovelas.entity.Etiqueta;
-
-
+import javax.annotation.Resource;
 
 @SpringBootApplication
-public class LasmilnovelasApplication {
+public class LasmilnovelasApplication implements CommandLineRunner {
 
-	@Autowired
-	private PersonajeRepository personajeRepository;
-	@Autowired
-	private HistoriaRepository historiaRepository;
-	@Autowired
-	private EtiquetaRepository etiquetaRepository;
-	@Autowired
-	private GrupoRepository grupoRepository;
-	@Autowired
-	private GeneroRepository generoRepository;
+	@Resource
+	ImageStoreService storageService;
 
-Etiqueta eti1 = new Etiqueta();
-	
-	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(LasmilnovelasApplication.class, args);
+	}
+
+
+	@Override
+	public void run(String... arg) throws Exception {
+		storageService.init();
 	}
 
 }
