@@ -188,7 +188,7 @@ public class HistoriaController {
 	@GetMapping("/historias/{id}/edit")
 	public String editHistoria(@PathVariable Long id, Model model) {
 		model.addAttribute("historia", historiaRepository.findById(id).get());
-		model.addAttribute("genero", generoRepository.findAll());
+		model.addAttribute("generoDBList", generoRepository.findAll());
 		model.addAttribute("etiquetasDBList", etiquetaRepository.findAll());
 		model.addAttribute("incidenteDBList", incidenteRepository.findAll());
 		model.addAttribute("personajeDBList", personajesRepository.findAll());	

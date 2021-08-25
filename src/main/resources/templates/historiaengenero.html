@@ -268,7 +268,7 @@ text-transform: capitalize;
 
 Etiquetas
 					<select id="etiquetas" th:field="*{etiquetas}" class="form-select" multiple>
-					  <option th:each="genre1: ${etiquetasDBList}" th:value="${genre1.id}" th:text="${genre1.nombre}"></option>
+					  <option th:each="etiquetas: ${etiquetaDBList}" th:value="${etiquetas.id}" th:text="${etiquetas.nombre}"></option>
 					</select>
 	
 

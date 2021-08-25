@@ -29,6 +29,7 @@
     <script src="../assets/popper.min.js"></script>
     <script src="../assets/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <script src="../assets/js/card.js"></script>
    
@@ -194,25 +195,79 @@ text-transform: capitalize;
 
 
          
-            <label for="amount">Numero de Capitulos:</label>
-            <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold;">
+            <label for="amount">EDAD RECOMENDADA:</label>
+            <input type="number" id="buscar-edad-input">
+            
+            
+            
+            
            </p>
            
            
+           
+           <p>Slider de Edad recomendada</p>
+           <p>
+            <label for="amount">Rango de edad recomendada:</label>
+            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+          </p>
            <div id="slider-range"></div>
+       
+       
+       
 			           <hr>
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
+			           
 			            <div id="form-ordenar">
 			           <table>
 			            <tr>
 			               <td>
 			                  Buscador por</td></tr><tr><td>
-			                  		Nombre<input type="text" name="nombre"></td></tr><tr><td>
+			                  		Nombre<input id="buscar-nombre" type="text" name="nombre"></td></tr><tr><td>
 			                  		Descripcion Grande<input id="buscar-descripcion-g" type="text" name="descripcion"></td></tr><tr><td>
 			                  		Autor<input type="text" name="descripcion_g"></td></tr><tr><td>
 			                  <button id="btn-buscar">Buscar</button>
+			                  <button id="btn-limpiar">Limpiar</button>
 			               </td>
 			            </tr>
 			         </table>
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
+			         
 			         
 			         
 			                
@@ -244,40 +299,50 @@ text-transform: capitalize;
       <thead>
          <tr>
           
-            <th>Description</th>
-            <th>Description G</th>
             <th>Nombre</th>
-            <th>Acciones</th>
-            <th class="ocultar-en-cards">sOLO EN cOLUMNAS</th>
+            <th>Description & Edad Recomendada</th>
+            <th style="display:none;">Edad Recomendada</th>
+            <th>Imagen</th>
+            <th>Descripcion Grande</th>
+            <th>Genero / Nº de Capitulos / Auto</th>
+            <th class="ocultar-en-cards">Acciones</th>
          </tr>
       </thead>
       <tbody>
-       <tr th:each="histori:${historias}"><td> <span th:utext="${histori.nombre}"></span></td>
-            <td class="columna-50-porciento"><span id="demoFont" th:utext="${histori.descripcion}"></span></td>
+       <tr th:each="histori:${historias}">
+       
+       		<td> <span th:utext="${histori.nombre}"></span></td>
             
+            <td class="columna-50-porciento">
+	            <span id="demoFont" th:utext="${histori.descripcion}"></span>
+	            <h3><span  th:utext="${histori.edad_recomendada}"></span></h3>
+            </td>
             
+            <td style="display:none;">
+	            <span th:utext="${histori.edad_recomendada}">
+            </td>
             
-			<td class="columna-50-porciento"><img width="100" th:src="@{ ${'data:image/jpeg;base64,' + histori.imagen}}"/>
+			<td class="columna-50-porciento"><img width="100" th:src="@{ ${'data:image/jpeg;base64,' + histori.imagen}}"></td>
 			
+			<td><span id="demoFont" th:utext="${histori.descripcion_g}"></span></td>
 			
-					<span style="display:none;" class="solo-visible-en-cards" >
-						Etiquetas 1 <br/>
-						Genero <span  class="solo-visible-en-cards" th:utext="${histori.genero.nombre}"></span>
-						Numero de Capitulos:<br/>
-						Autor <br/>
-			</span>
+			<td >
+				<span style="display:none;" class="solo-visible-en-cards">
+					Etiquetas 1 <br/>
+					Genero <span  class="solo-visible-en-cards" th:utext="${histori.genero.nombre}"></span>
+					Numero de Capitulos:<br/>
+					Autor <br/>
+				</span>
+				
+				<span class="ocultar-en-cards">
+			Etiquetas 1 <br/>
+					Genero <span  class="ocultar-en-cards" th:utext="${histori.genero.nombre}"></span>
+					Numero de Capitulos:<br/>
+					Autor <br/>
+				</span>
+				
 			</td>
-			<td class="ocultar-en-cards"><span >
-		Etiquetas 1 <br/>
-				Genero <span  class="ocultar-en-cards" th:utext="${histori.genero.nombre}"></span>
-				Numero de Capitulos:<br/>
-				Autor <br/>
-			</span></td>
-         
-         
-         
-         
-         
+			
            <td>
 				<a  th:href="@{/historias/{id}/view(id=${histori.id})}">Ver</a><br/>
 				
@@ -335,6 +400,7 @@ text-transform: capitalize;
 
 
     <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
 
 

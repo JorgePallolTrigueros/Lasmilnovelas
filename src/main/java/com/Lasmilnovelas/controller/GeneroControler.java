@@ -51,7 +51,7 @@ public class GeneroControler {
 	public String inserthistoriaengenero(@PathVariable Long id_genero, Model model) {
 		//establecer el id de la historia al modelo
 		model.addAttribute("idGenero",id_genero);
-
+		model.addAttribute("etiquetaDBList", etiquetaRepository.findAll());
 		//crear el personaje
 		Historia historia = new Historia();
 		//asignarle historia
