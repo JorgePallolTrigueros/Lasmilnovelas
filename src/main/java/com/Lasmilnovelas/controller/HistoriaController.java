@@ -165,7 +165,7 @@ public class HistoriaController {
 	@GetMapping("/historias/new")
 	public String newHistoria(Model model) {
 		model.addAttribute("historia", new Historia());
-		model.addAttribute("genero", generoRepository.findAll());
+		model.addAttribute("generoDBList", generoRepository.findAll());
 		model.addAttribute("etiquetasDBList", etiquetaRepository.findAll());
 		model.addAttribute("personajeDBList", personajesRepository.findAll());	
 		
@@ -195,13 +195,9 @@ public class HistoriaController {
 		return "historia-edit";
 		
 	}
-	
-
-
-
 
 	@PostMapping(value ="/historias" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-	public String saveHistoria(@RequestParam("image") MultipartFile file, @ModelAttribute("genero") Historia historia,@ModelAttribute("idGenero") Long idGenero) {
+	public String saveHistoria(@RequestParam("image") MultipartFile file, @ModelAttribute("historia") Historia historia,@ModelAttribute("idGenero") Long idGenero) {
 		System.out.println("Guardando Historia");
 		System.out.println(historia);
 		System.out.println("Historia");
@@ -228,9 +224,6 @@ public class HistoriaController {
 				}*/
 			}
 		}
-
-		//no se conoce el id por que no se ha guardado
-		historia.getId();
 
 		historia = historiaRepository.saveAndFlush(historia);
 

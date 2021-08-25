@@ -53,9 +53,7 @@ public class Genero implements Serializable{
 	
 	
 	
-	
-	
-	
+
 	public Long getId() {
 		return id;
 	}
