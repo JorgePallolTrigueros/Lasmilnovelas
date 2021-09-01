@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	
+	let VISTA_CARDS = false;
 	
     const TABLA = $('#example').DataTable( {
     
@@ -21,6 +21,10 @@ $(document).ready(function() {
             'text': '<i class="fa fa-id-badge fa-fw" aria-hidden="true"></i>',
             'action': function (e, dt, node) {
 
+				VISTA_CARDS = !VISTA_CARDS;
+				if (VISTA_CARDS) document.querySelector('.container').classList.add('visible-cards');
+				else document.querySelector('.container').classList.remove('visible-cards');
+				
                $(dt.table().node()).toggleClass('cards');
                $('.fa', node).toggleClass(['fa-table', 'fa-id-badge']);
 
@@ -32,6 +36,7 @@ $(document).ready(function() {
             }
          }],
     } );
+
 
 
     setTimeout(() => {
@@ -66,6 +71,16 @@ $(document).ready(function() {
       });
       $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
          "-" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+
+       document.getElementById('btn-ordenar').addEventListener('click', e => {
+         e.preventDefault();
+         var campo = document.getElementById('select-campo').value;
+         var orden = document.getElementById('select-orden').value;
+         TABLA.order([ parseInt(campo, 10), orden ]).draw();
+      })
+
 
     }, 500)
 

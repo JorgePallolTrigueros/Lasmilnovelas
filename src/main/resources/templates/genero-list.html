@@ -193,25 +193,25 @@ text-transform: capitalize;
 	<a class="btn btn-success" th:href="@{/generos/new}">Añadir Genero</a>
 	<a class="btn btn-danger" th:href="@{/genmeros/delete}">Borrar historia</a><p>
    </div>
-	<img src="img/2.png" style="width: 809px;">
+	<img src="img/2.png" style="width: 809px;"/>
 	
    <table id="example" class="table table-sm table-hover display" cellspacing="0" width="100%">
-      <thead>
-         <tr>  
-            <th>Nombre</th>
-            <th>Acciones</th>
-         </tr>
-      </thead>
-      <tbody>
-       <tr th:each="gener:${generos}"><td> <span th:utext="${gener.nombre}"></span></td>
-           <td>
-				<a  th:href="@{/generos/{id}/view(id=${gener.id})}">Ver</a>
-				<a  th:href="@{/generos/{id}/inserthistoriaengenero(id=${gener.id})}">Insertar Nuevo Novela en este Genero</a>
-				<a  th:href="@{/generos/{id}/edit(id=${gener.id})}">Editar</a>
-				<a  th:href="@{/generos/{id}/delete(id=${gener.id})}">Eliminar</a>
-           </td>
-       </tr>
-      </tbody>
+				      <thead>
+				         <tr>  
+				            <th>Nombre</th>
+				            <th>Acciones</th>
+				         </tr>
+				      </thead>
+				      <tbody>
+				       <tr th:each="gener:${generos}"><td> <span th:utext="${gener.nombre}"></span></td>
+				           <td>
+								<a  th:href="@{/generos/{id}/view(id=${gener.id})}">Ver</a><br/>
+								<a  th:href="@{/generos/{id}/inserthistoriaengenero(id=${gener.id})}">Insertar Nuevo Novela en este Genero</a><br/>
+								<a  th:href="@{/generos/{id}/edit(id=${gener.id})}">Editar</a><br/>
+								<a  th:href="@{/generos/{id}/delete(id=${gener.id})}">Eliminar</a><br/>
+				           </td>
+				       </tr>
+				      </tbody>
    </table>
 
 </div>

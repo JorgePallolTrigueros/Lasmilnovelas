@@ -150,7 +150,7 @@
                                 definindo Educação Financeira. Partimos da definição da Organização para a Cooperação e
                                 Desenvolvimento Econômico (OCDE) para esclarecer o que é e o que não é Educação
                                 Financeira. Ressaltamos que ela é processual e relacionada ao
-                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="img/ii.jpg">
+                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="/img/ii.jpg">
                             <p>
                             <h2 id="titulo-3" class="c-titulo2"
                                 style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">
@@ -166,7 +166,7 @@
                                 Noticias<br></h2>
                             <p class="text-left c-corpo" id="corpo-texto" style="color: rgb(255,255,255);">Definir
                                 Educação Financeira e situá-la como pilar da cidadania financeira.<br></p><img
-                                class="img-fluid" src="img/06062020-bullim.jpg">
+                                class="img-fluid" src="/img/06062020-bullim.jpg">
                             <p>
                             <h2 id="titulo-3" class="c-titulo2"
                                 style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">
@@ -180,7 +180,7 @@
                                 definindo Educação Financeira. Partimos da definição da Organização para a Cooperação e
                                 Desenvolvimento Econômico (OCDE) para esclarecer o que é e o que não é Educação
                                 Financeira. Ressaltamos que ela é processual e relacionada ao
-                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="img/alda 1ss.png">
+                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="/img/alda 1ss.png">
                             <p class="c-corpo" style="color: rgb(255,255,255);">Apresentamos também, nessa aula, três
                                 personagens que vão nos acompanhar nesta formação em Educação Financeira Pessoal: Marta,
                                 Aílton e Joana. São perfis que revelam comportamentos distintos em relação às finanças
@@ -194,7 +194,7 @@
                                 definindo Educação Financeira. Partimos da definição da Organização para a Cooperação e
                                 Desenvolvimento Econômico (OCDE) para esclarecer o que é e o que não é Educação
                                 Financeira. Ressaltamos que ela é processual e relacionada ao
-                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="img/alda 1ss.png">
+                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="/img/alda 1ss.png">
                             <p>
                             <h2 id="titulo-3" class="c-titulo2"
                                 style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">
@@ -203,7 +203,7 @@
                                 definindo Educação Financeira. Partimos da definição da Organização para a Cooperação e
                                 Desenvolvimento Econômico (OCDE) para esclarecer o que é e o que não é Educação
                                 Financeira. Ressaltamos que ela é processual e relacionada ao
-                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="img/alda 1ss.png">
+                                comportamento.&nbsp;&nbsp;</p><img class="img-fluid" src="/img/alda 1ss.png">
                             <p>
                             <h2 id="titulo-3" class="c-titulo2"
                                 style="font-size: 17px;font-family: Amarante, serif;color: rgb(215,218,221);text-align: center;">
@@ -275,6 +275,21 @@
                                     <input type="number" class="form-control" id="numero_de_Capitulos" rows="3"
                                            th:field="*{numero_de_Capitulos}"/>
                                 </div>
+
+
+
+										Si hubiera Muchas Etiquetas para poder Filtrar por la columna referencia
+					
+					
+						 <input type="text" class="form-control" />
+				
+
+
+Etiquetas
+					<select id="etiquetas" th:field="*{etiquetas}" class="form-select" multiple>
+					  <option th:each="etiquetas: ${etiquetaDBList}" th:value="${etiquetas.id}" th:text="${etiquetas.nombre}"></option>
+					</select>
+
 
 
                                 <label class="form-check-label" for="idGenero">Genero</label>

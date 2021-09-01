@@ -33,6 +33,9 @@
 .cards .solo-visible-en-cards {
 	display: block !important;
 }
+.visible-cards .solo-visible-en-cards {
+	display: block !important;
+}
 .cards .ocultar-en-cards {
 	display: none !important;
 }

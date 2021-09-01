@@ -166,7 +166,7 @@ public class HistoriaController {
 	public String newHistoria(Model model) {
 		model.addAttribute("historia", new Historia());
 		model.addAttribute("generoDBList", generoRepository.findAll());
-		model.addAttribute("etiquetasDBList", etiquetaRepository.findAll());
+		model.addAttribute("etiquetaDBList", etiquetaRepository.findAll());
 		model.addAttribute("personajeDBList", personajesRepository.findAll());	
 		
 		return "historia-edit";
@@ -189,7 +189,7 @@ public class HistoriaController {
 	public String editHistoria(@PathVariable Long id, Model model) {
 		model.addAttribute("historia", historiaRepository.findById(id).get());
 		model.addAttribute("generoDBList", generoRepository.findAll());
-		model.addAttribute("etiquetasDBList", etiquetaRepository.findAll());
+		model.addAttribute("etiquetaDBList", etiquetaRepository.findAll());
 		model.addAttribute("incidenteDBList", incidenteRepository.findAll());
 		model.addAttribute("personajeDBList", personajesRepository.findAll());	
 		return "historia-edit";

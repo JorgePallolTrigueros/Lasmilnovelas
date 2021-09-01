@@ -239,8 +239,9 @@ text-transform: capitalize;
 			           
 			           
 			           
-			           
-			            <div id="form-ordenar">
+			<div>        
+	
+			            <div style="display:none;" id="form-ordenar" class="solo-visible-en-cards">
 			           <table>
 			            <tr>
 			               <td>
@@ -253,29 +254,12 @@ text-transform: capitalize;
 			               </td>
 			            </tr>
 			         </table>
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			         
-			                
+
 			            <select id="select-campo">
-			               <option value="1">Nombre</option>
-			               <option value="2">Descripcio G</option>
-			               <option value="3">Decripcion</option>
-			               <option value="4">Autor</option>    
+			               <option value="0">Nombre</option>
+			               <option value="4">Descripcio G</option>
+			               <option value="1">Decripcion</option>
+			               <option value="5">Autor</option>    
 			            </select>
 			            <select id="select-orden">
 			               <option value="asc">Ascendente</option>
@@ -283,6 +267,16 @@ text-transform: capitalize;
 			            </select>
 			            <button id="btn-ordenar">Ordenar</button>
 			         
+         
+         </div>   
+         
+         
+         
+         
+         
+         
+         
+         
          
        
 
@@ -304,6 +298,7 @@ text-transform: capitalize;
             <th style="display:none;">Edad Recomendada</th>
             <th>Imagen</th>
             <th>Descripcion Grande</th>
+            <th>aUTOR</th>
             <th>Genero / Nº de Capitulos / Auto</th>
             <th class="ocultar-en-cards">Acciones</th>
          </tr>
@@ -325,6 +320,8 @@ text-transform: capitalize;
 			<td class="columna-50-porciento"><img width="100" th:src="@{ ${'data:image/jpeg;base64,' + histori.imagen}}"></td>
 			
 			<td><span id="demoFont" th:utext="${histori.descripcion_g}"></span></td>
+			<td><span id="demoFont" th:utext="${histori.autor}"></span></td>
+			
 			
 			<td >
 				<span style="display:none;" class="solo-visible-en-cards">
