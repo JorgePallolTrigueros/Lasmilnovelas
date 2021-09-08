@@ -21,20 +21,19 @@ public class Galeria implements Serializable{
 	@GeneratedValue
 	private Long id;
 	
-	
-
-	
 	@ManyToOne
 	@JoinColumn(name = "id_historia")
 	private Historia historia;
 
-	
-	
+	@Column(length =250, name="hash")
+	private String hash;
+
+	@Column(length =250, name="ruta")
+	private String ruta;
+
 	@Lob
 	@Column(columnDefinition = "MEDIUMBLOB")
 	private String imagen;
-	
-	
 
 
 	public Historia getHistoria() {
@@ -45,12 +44,31 @@ public class Galeria implements Serializable{
 		this.historia = historia;
 	}
 
-	
-	
-	
-	
-	
-	
+
+	/**
+	 * Asociando histora con galeria
+	 * @param id
+	 */
+	public void setHistoriaWithId(Long id){
+		this.historia = new Historia(id);
+	}
+
+	public String getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(String ruta) {
+		this.ruta = ruta;
+	}
+
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
+	}
+
 	public String getImagen() {
 		return imagen;
 	}

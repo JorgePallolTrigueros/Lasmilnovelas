@@ -152,6 +152,14 @@ public class HistoriaController {
 
 		historia.setImagen(imageStoreService.base64("imagenes/portada_historia_"+historia.getId()+".jpg"));
 
+
+		//recorrer la lista de galeria en historia
+		for(Galeria galeria:historia.getGalerias()){
+			//sacando la imagen de la ruta y cargandola en el campo imagen
+			//esto se mostrara como base 64
+			galeria.setImagen(imageStoreService.base64("imagenes/"+galeria.getRuta()));
+		}
+
 		model.addAttribute("historia", historia);
 		return "historia-view";
 	}
@@ -198,6 +206,9 @@ public class HistoriaController {
 
 	@PostMapping(value ="/historias" ,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_FORM_URLENCODED_VALUE})
 	public String saveHistoria(@RequestParam("image") MultipartFile file, @ModelAttribute("historia") Historia historia,@ModelAttribute("idGenero") Long idGenero) {
+
+
+
 		System.out.println("Guardando Historia");
 		System.out.println(historia);
 		System.out.println("Historia");
